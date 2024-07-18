@@ -82,9 +82,9 @@
                 
                 const imageCell1 = document.createElement('td');
                 imageCell1.classList.add('image-cell');
-                const imageElement = document.createElement('img');
-                imageElement.src = row.imageURL;
-                imageElement.addEventListener('click', () => {
+                const imageElement1 = document.createElement('img');
+                imageElement1.src = row.imageURL;
+                imageElement1.addEventListener('click', () => {
                     navigator.clipboard.writeText(row.symbol1);
                 
                     // Изменить цвет фона ячейки символа
@@ -95,16 +95,16 @@
                         symbolCell.style.backgroundColor = '';
                     }, 2000);
                 });
-                imageCell1.appendChild(imageElement);
+                imageCell1.appendChild(imageElement1);
                 tableRow.appendChild(imageCell1);
 
 
                 
                 const imageCell3 = document.createElement('td');
                 imageCell3.classList.add('image-cell');
-                const imageElement = document.createElement('img');
-                imageElement.src = row.imageURL;
-                imageElement.addEventListener('click', () => {
+                const imageElement3 = document.createElement('img');
+                imageElement3.src = row.imageURL;
+                imageElement3.addEventListener('click', () => {
                     navigator.clipboard.writeText(row.symbol3);
                 
                     // Изменить цвет фона ячейки символа
@@ -115,7 +115,7 @@
                         symbolCell.style.backgroundColor = '';
                     }, 2000);
                 });
-                imageCell3.appendChild(imageElement);
+                imageCell3.appendChild(imageElement3);
                 tableRow.appendChild(imageCell3);
 
 
