@@ -84,21 +84,13 @@
 				const symbol = symbolCell.textContent;
 				navigator.clipboard.writeText(symbol);
 			
-				// Создать элемент уведомления
-				const notificationElement = document.createElement('div');
-				notificationElement.classList.add('notification');
-				notificationElement.textContent = 'Символ скопирован!';
+				// Изменить цвет фона ячейки символа
+				symbolCell.style.backgroundColor = 'yellow'; // Или любой другой цвет
 			
-				// Добавить уведомление на страницу
-				document.body.appendChild(notificationElement);
-			
-				// Скрыть уведомление через 2 секунды
+				// Сбросить цвет фона ячейки через 2 секунды
 				setTimeout(() => {
-					notificationElement.style.display = 'none';
+					symbolCell.style.backgroundColor = '';
 				}, 2000);
-				});
-				imageCell.appendChild(imageElement);
-				tableRow.appendChild(imageCell);
                 
                 const symbol1Cell = document.createElement('td');
                 symbol1Cell.textContent = row.symbol1;
