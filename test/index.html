@@ -78,9 +78,14 @@
                 imageCell.classList.add('image-cell');
                 const imageElement = document.createElement('img');
                 imageElement.src = row.imageURL;
+                imageElement.addEventListener('click', () => {
+                  const symbolCell = event.target.closest('tr').querySelector('td:nth-child(4)');
+                  const symbol = symbolCell.textContent;
+                  navigator.clipboard.writeText(symbol);
+                });
                 imageCell.appendChild(imageElement);
                 tableRow.appendChild(imageCell);
-
+                
                 const symbol1Cell = document.createElement('td');
                 symbol1Cell.textContent = row.symbol1;
                 symbol1Cell.addEventListener('click', () => {
