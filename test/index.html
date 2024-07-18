@@ -79,8 +79,6 @@
 				imageCell.classList.add('image-cell');
 				const imageElement = document.createElement('img');
 				imageElement.src = row.imageURL;
-				imageElement.width = 3 * row.imageWidth; // Увеличить ширину в 3 раза
-				imageElement.height = 3 *  row.imageHeight; // Сохранить исходную высоту
 				imageElement.addEventListener('click', () => {
 					const symbolCell = event.target.closest('tr').querySelector('td:nth-child(2)');
 					const symbol = symbolCell.textContent;
