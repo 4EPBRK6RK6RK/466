@@ -1,0 +1,14 @@
+[
+    {
+        "fileName": "item/apple.png",
+        "imageURL": "https://mcasset.cloud/1.20.4/assets/minecraft/textures/item/apple.png",
+        "symbol1": "󰀈",
+        "symbol3": "󷔸"
+    },
+    {
+        "fileName": "item/arrow.png",
+        "imageURL": "https://mcasset.cloud/1.20.4/assets/minecraft/textures/item/arrow.png",
+        "symbol1": "󰀌",
+        "symbol3": "󷔼"
+    }
+]
