@@ -25,8 +25,15 @@
 
         .image-cell {
             text-align: center;
-    }
+		}
         .image-cell img{
+            height: 16px;
+        }
+
+        .image-cell3 {
+            text-align: center;
+		}
+        .image-cell3 img{
             height: 16px;
         }
 
@@ -101,7 +108,7 @@
 
                 
                 const imageCell3 = document.createElement('td');
-                imageCell3.classList.add('image-cell');
+                imageCell3.classList.add('image-cell3');
                 const imageElement3 = document.createElement('img');
                 imageElement3.src = row.imageURL;
                 imageElement3.addEventListener('click', () => {
