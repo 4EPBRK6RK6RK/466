@@ -34,7 +34,7 @@
             text-align: center;
 		}
         .image-cell3 img{
-            height: 16px;
+            height: 24px;
         }
 
         #search-input {
@@ -95,11 +95,11 @@
                     navigator.clipboard.writeText(row.symbol1);
                 
                     // Изменить цвет фона ячейки символа
-                    symbolCell.style.backgroundColor = 'yellow'; // Или любой другой цвет
+                    imageCell1.style.backgroundColor = 'yellow'; // Или любой другой цвет
                 
                     // Сбросить цвет фона ячейки через 2 секунды
                     setTimeout(() => {
-                        symbolCell.style.backgroundColor = '';
+                        imageCell1.style.backgroundColor = '';
                     }, 2000);
                 });
                 imageCell1.appendChild(imageElement1);
@@ -115,11 +115,11 @@
                     navigator.clipboard.writeText(row.symbol3);
                 
                     // Изменить цвет фона ячейки символа
-                    symbolCell.style.backgroundColor = 'yellow'; // Или любой другой цвет
+                    imageCell3.style.backgroundColor = 'yellow'; // Или любой другой цвет
                 
                     // Сбросить цвет фона ячейки через 2 секунды
                     setTimeout(() => {
-                        symbolCell.style.backgroundColor = '';
+                        imageCell3.style.backgroundColor = '';
                     }, 2000);
                 });
                 imageCell3.appendChild(imageElement3);
