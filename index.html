@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица данных из JSON</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        .image-cell {
+            text-align: center;
+        }
+
+        #search-input {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Таблица данных</h1>
+
+    <input type="text" id="search-input" placeholder="Поиск">
+
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Файл</th>
+                <th>Изображение</th>
+                <th>Символ 1</th>
+                <th>Символ 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
+    <script>
+        // Функция для загрузки данных JSON
+        function loadJSONData(dataURL) {
+            fetch(dataURL)
+                .then(response => response.json())
+                .then(data => {
+                    displayData(data);
+                })
+                .catch(error => console.error('Error loading JSON data:', error));
+        }
+
+        // Функция для отображения данных в таблице
+        function displayData(data) {
+            const tableBody = document.getElementById('data-table').querySelector('tbody');
+            tableBody.innerHTML = ''; // Очистить существующие строки
+
+            data.forEach(row => {
+                const tableRow = document.createElement('tr');
+
+                const fileNameCell = document.createElement('td');
+                fileNameCell.textContent = row.fileName;
+                tableRow.appendChild(fileNameCell);
+
+                const imageCell = document.createElement('td');
+                imageCell.classList.add('image-cell');
+                const imageElement = document.createElement('img');
+                imageElement.src = row.imageURL;
+                imageCell.appendChild(imageElement);
+                tableRow.appendChild(imageCell);
+
+                const symbol1Cell = document.createElement('td');
+                symbol1Cell.textContent = row.symbol1;
+                symbol1Cell.addEventListener('click', () => {
+                    navigator.clipboard.writeText(row.symbol1);
+                });
+                tableRow.appendChild(symbol1Cell);
+
+                const symbol3Cell = document.createElement('td');
+                symbol3Cell.textContent = row.symbol3;
+                symbol3Cell.addEventListener('click', () => {
+                    navigator.clipboard.writeText(row.symbol3);
+                });
+                tableRow.appendChild(symbol3Cell);
+
+                tableBody.appendChild(tableRow);
+            });
+        }
+
+        // Загрузка данных JSON по умолчанию
+        loadJSONData('./data.json'); // Замените 'data.json' на URL-адрес вашего файла JSON
+
+        // Функция для фильтрации строк по поисковому запросу
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const tableRows = document.getElementById('data-table').querySelectorAll('tbody tr');
+
+            tableRows.forEach(row => {
+                const rowText = row.textContent.toLowerCase();
+                if (rowText.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
