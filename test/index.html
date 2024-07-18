@@ -74,17 +74,31 @@
                 fileNameCell.textContent = row.fileName;
                 tableRow.appendChild(fileNameCell);
 
-                const imageCell = document.createElement('td');
-                imageCell.classList.add('image-cell');
-                const imageElement = document.createElement('img');
-                imageElement.src = row.imageURL;
-                imageElement.addEventListener('click', () => {
-                  const symbolCell = event.target.closest('tr').querySelector('td:nth-child(4)');
-                  const symbol = symbolCell.textContent;
-                  navigator.clipboard.writeText(symbol);
-                });
-                imageCell.appendChild(imageElement);
-                tableRow.appendChild(imageCell);
+                
+				const imageCell = document.createElement('td');
+				imageCell.classList.add('image-cell');
+				const imageElement = document.createElement('img');
+				imageElement.src = row.imageURL;
+				imageElement.addEventListener('click', () => {
+				const symbolCell = event.target.closest('tr').querySelector('td:nth-child(4)');
+				const symbol = symbolCell.textContent;
+				navigator.clipboard.writeText(symbol);
+			
+				// Создать элемент уведомления
+				const notificationElement = document.createElement('div');
+				notificationElement.classList.add('notification');
+				notificationElement.textContent = 'Символ скопирован!';
+			
+				// Добавить уведомление на страницу
+				document.body.appendChild(notificationElement);
+			
+				// Скрыть уведомление через 2 секунды
+				setTimeout(() => {
+					notificationElement.style.display = 'none';
+				}, 2000);
+				});
+				imageCell.appendChild(imageElement);
+				tableRow.appendChild(imageCell);
                 
                 const symbol1Cell = document.createElement('td');
                 symbol1Cell.textContent = row.symbol1;
