@@ -80,27 +80,27 @@
 				const imageElement = document.createElement('img');
 				imageElement.src = row.imageURL;
 				imageElement.addEventListener('click', () => {
-				const symbolCell = event.target.closest('tr').querySelector('td:nth-child(4)');
-				const symbol = symbolCell.textContent;
-				navigator.clipboard.writeText(symbol);
-			
-				// Изменить цвет фона ячейки символа
-				symbolCell.style.backgroundColor = 'yellow'; // Или любой другой цвет
-			
-				// Сбросить цвет фона ячейки через 2 секунды
-				setTimeout(() => {
-					symbolCell.style.backgroundColor = '';
-				}, 2000);
+					const symbolCell = event.target.closest('tr').querySelector('td:nth-child(2)');
+					const symbol = symbolCell.textContent;
+					navigator.clipboard.writeText(symbol);
+				
+					// Изменить цвет фона ячейки символа
+					symbolCell.style.backgroundColor = 'yellow'; // Или любой другой цвет
+				
+					// Сбросить цвет фона ячейки через 2 секунды
+					setTimeout(() => {
+						symbolCell.style.backgroundColor = '';
+					}, 2000);
 				});
-    				imageCell.appendChild(imageElement);
-    				tableRow.appendChild(imageCell);
+    			imageCell.appendChild(imageElement);
+    			tableRow.appendChild(imageCell);
                 
                 const symbol1Cell = document.createElement('td');
                 symbol1Cell.textContent = row.symbol1;
                 symbol1Cell.addEventListener('click', () => {
                     navigator.clipboard.writeText(row.symbol1);
                 });
-                tableRow.appendChild(symbol1Cell);
+				tableRow.appendChild(symbol1Cell);
 
                 const symbol3Cell = document.createElement('td');
                 symbol3Cell.textContent = row.symbol3;
