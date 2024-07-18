@@ -45,7 +45,6 @@
         <thead>
             <tr>
                 <th>Файл</th>
-                <th>Изображение</th>
                 <th>Символ 1</th>
                 <th>Символ 3</th>
             </tr>
@@ -73,17 +72,20 @@
             data.forEach(row => {
                 const tableRow = document.createElement('tr');
 
+
+
                 const fileNameCell = document.createElement('td');
                 fileNameCell.textContent = row.fileName;
                 tableRow.appendChild(fileNameCell);
 
+
                 
-                const imageCell = document.createElement('td');
-                imageCell.classList.add('image-cell');
+                const imageCell1 = document.createElement('td');
+                imageCell1.classList.add('image-cell');
                 const imageElement = document.createElement('img');
                 imageElement.src = row.imageURL;
                 imageElement.addEventListener('click', () => {
-					navigator.clipboard.writeText(row.symbol3);
+                    navigator.clipboard.writeText(row.symbol1);
                 
                     // Изменить цвет фона ячейки символа
                     symbolCell.style.backgroundColor = 'yellow'; // Или любой другой цвет
@@ -93,22 +95,30 @@
                         symbolCell.style.backgroundColor = '';
                     }, 2000);
                 });
-                imageCell.appendChild(imageElement);
-                tableRow.appendChild(imageCell);
-                
-                const symbol1Cell = document.createElement('td');
-                symbol1Cell.textContent = row.symbol1;
-                symbol1Cell.addEventListener('click', () => {
-                    navigator.clipboard.writeText(row.symbol1);
-                });
-                tableRow.appendChild(symbol1Cell);
+                imageCell1.appendChild(imageElement);
+                tableRow.appendChild(imageCell1);
 
-                const symbol3Cell = document.createElement('td');
-                symbol3Cell.textContent = row.symbol3;
-                symbol3Cell.addEventListener('click', () => {
+
+                
+                const imageCell3 = document.createElement('td');
+                imageCell3.classList.add('image-cell');
+                const imageElement = document.createElement('img');
+                imageElement.src = row.imageURL;
+                imageElement.addEventListener('click', () => {
                     navigator.clipboard.writeText(row.symbol3);
+                
+                    // Изменить цвет фона ячейки символа
+                    symbolCell.style.backgroundColor = 'yellow'; // Или любой другой цвет
+                
+                    // Сбросить цвет фона ячейки через 2 секунды
+                    setTimeout(() => {
+                        symbolCell.style.backgroundColor = '';
+                    }, 2000);
                 });
-                tableRow.appendChild(symbol3Cell);
+                imageCell3.appendChild(imageElement);
+                tableRow.appendChild(imageCell3);
+
+
 
                 tableBody.appendChild(tableRow);
             });
