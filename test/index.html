@@ -46,8 +46,9 @@
 </head>
 <body>
     <h1>ItemSymbol Helper</h1>
+    <h3>Enter the name of the desired texture => click on the image of the desired size to copy => paste it into the game (Ctrl + V)</h3>
 
-    <input type="text" id="search-input" placeholder="Поиск">
+    <input type="text" id="search-input" placeholder="Search">
 
     <table id="data-table">
         <thead>
@@ -91,7 +92,7 @@
                 const imageCell1 = document.createElement('td');
                 imageCell1.classList.add('image-cell');
                 const imageElement1 = document.createElement('img');
-                imageElement1.src = row.imageURL;
+                imageElement1.src = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21/assets/minecraft/textures/${row.fileName}`;
                 imageElement1.addEventListener('click', () => {
                     navigator.clipboard.writeText(row.symbol1);
                 
@@ -111,7 +112,7 @@
                 const imageCell3 = document.createElement('td');
                 imageCell3.classList.add('image-cell3');
                 const imageElement3 = document.createElement('img');
-                imageElement3.src = row.imageURL;
+                imageElement3.src = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21/assets/minecraft/textures/${row.fileName}`;
                 imageElement3.addEventListener('click', () => {
                     navigator.clipboard.writeText(row.symbol3);
                 
