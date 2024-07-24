@@ -84,7 +84,7 @@
 
 
                 const fileNameCell = document.createElement('td');
-                fileNameCell.textContent = row.fileName;
+                fileNameCell.textContent = row.file;
                 tableRow.appendChild(fileNameCell);
 
 
@@ -92,7 +92,7 @@
                 const imageCell1 = document.createElement('td');
                 imageCell1.classList.add('image-cell');
                 const imageElement1 = document.createElement('img');
-                imageElement1.src = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21/assets/minecraft/textures/${row.fileName}`;
+                imageElement1.src = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21/assets/minecraft/textures/${row.file}`;
                 imageElement1.addEventListener('click', () => {
                     navigator.clipboard.writeText(row.symbol1);
                 
@@ -112,7 +112,7 @@
                 const imageCell3 = document.createElement('td');
                 imageCell3.classList.add('image-cell3');
                 const imageElement3 = document.createElement('img');
-                imageElement3.src = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21/assets/minecraft/textures/${row.fileName}`;
+                imageElement3.src = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21/assets/minecraft/textures/${row.file}`;
                 imageElement3.addEventListener('click', () => {
                     navigator.clipboard.writeText(row.symbol3);
                 
